@@ -1,5 +1,15 @@
 <div class="card card-team">
+    <div class="progress">
+        <div class="progress-bar {{progressColor}}"
+             role="progressbar"
+             [ngStyle]="{width: progressValue+'%'}"
+             [attr.aria-valuenow]="progressValue"
+             aria-valuemin="0"
+             aria-valuemax="100">
+        </div>
+    </div>
     <div class="card-body">
+
         <!-- <div class="dropdown card-options">
             <button class="btn-options"
                     type="button"

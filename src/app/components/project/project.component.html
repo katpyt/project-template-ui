@@ -1,0 +1,24 @@
+<div class="row justify-content-center">
+    <div class="col-lg-11 col-xl-10">
+        <div class="page-header mb-4">
+            <div class="media">
+                <div class="media-body ml-3">
+                    <h1>Projects</h1>
+                    <p>You can browse through projects below</p>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content">
+            <div class="content-list-body row ">
+                <section class="col-md-6"
+                         *ngFor="let project of projectList$ | async">
+                    <card-progress-bar [title]="project.name"
+                                       subTitle="Due on {{project.dueInfo  | date: 'mediumDate'}}"
+                                       [progressValue]="project.progressPercentage"
+                                       [progressColor]="project.progressColor">
+                    </card-progress-bar>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
