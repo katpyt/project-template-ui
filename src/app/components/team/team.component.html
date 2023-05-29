@@ -1,0 +1,9 @@
+<h1>Teams</h1>
+<p>You can browse through teams below</p>
+
+
+<card-basic title="">
+    <ul>
+        <li *ngFor="let item of teamList$ | async">{{ item | json }}</li>
+    </ul>
+</card-basic>
