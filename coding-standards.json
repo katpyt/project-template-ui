@@ -1,0 +1,97 @@
+{
+  "entityRelations": {
+    "component": {
+      "model": ["PROPERTY"],
+      "queryModel": ["PROPERTY"],
+      "service": ["CONSTRUCTOR"],
+      "router": ["CONSTRUCTOR"],
+      "activatedRoute": ["CONSTRUCTOR"],
+      "viewModel": ["PROPERTY"]
+    },
+    "service": {
+      "httpClient": ["CONSTRUCTOR"],
+      "model": ["PARAMETER", "RETURN"]
+    },
+    "pipe": {
+      "model": ["PROPERTY"],
+      "service": ["CONSTRUCTOR"]
+    },
+    "directive": {
+      "model": ["PROPERTY"],
+      "service": ["CONSTRUCTOR"],
+      "elementRef": ["CONSTRUCTOR"],
+      "renderer2": ["CONSTRUCTOR"],
+      "viewContainerRef": ["CONSTRUCTOR"],
+      "templateRef": ["CONSTRUCTOR"]
+    }
+  },
+  "external": {
+    "templateRef": {
+      "type": "TemplateRef",
+      "module": "@angular/core"
+    },
+    "viewContainerRef": {
+      "type": "ViewContainerRef",
+      "module": "@angular/core"
+    },
+    "elementRef": {
+      "type": "ElementRef",
+      "module": "@angular/core"
+    },
+    "renderer2": {
+      "type": "Renderer2",
+      "module": "@angular/core"
+    },
+    "httpClient": {
+      "type": "HttpClient",
+      "module": "@angular/common/http"
+    },
+    "router": {
+      "type": "Router",
+      "module": "@angular/router"
+    },
+    "activatedRoute": {
+      "type": "ActivatedRoute",
+      "module": "@angular/router"
+    }
+  },
+  "entities": {
+    "component": {
+      "type": "ANGULAR_COMPONENT",
+      "folder": "components/$name$",
+      "config": {
+        "stylesExtension": "none",
+        "viewEncapsulation": "None",
+        "selector": "generated",
+        "changeDetectionStrategy": "OnPush"
+      }
+    },
+    "model": {
+      "type": "DATA_STRUCTURE"
+    },
+    "query": {
+      "type": "DATA_STRUCTURE",
+      "suffix": "QueryModel",
+      "folder": "queries"
+    },
+    "service": {
+      "type": "ANGULAR_SERVICE"
+    },
+    "pipe": {
+      "id": "pipe",
+      "type": "ANGULAR_PIPE",
+      "suffix": "Pipe",
+      "folder": "pipes/$name$"
+    },
+    "directive": {
+      "id": "directive",
+      "type": "ANGULAR_DIRECTIVE",
+      "suffix": "Directive",
+      "folder": "directives/$name$"
+    },
+    "viewModel": {
+      "type": "DATA_STRUCTURE",
+      "folder": "components/$name$"
+    }
+  }
+}
