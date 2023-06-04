@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { EmployeeModel } from '../../models/employee.model';
 import { EmployeesService } from '../../services/employees.service';
 import { EmployeesViewModel } from './employees.view-model';
 

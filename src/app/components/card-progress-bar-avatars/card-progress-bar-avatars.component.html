@@ -18,10 +18,7 @@
         </div>
         <div class="card-meta">
             <avatar-list [avatarsList]="cardData.employeeData"></avatar-list>
-            <div class="d-flex align-items-center">
-                <i class="material-icons">playlist_add_check</i>
-                <span>{{cardData.tasksStatus}}</span>
-            </div>
+            <play-list-add-check [text]="cardData.tasksStatus"></play-list-add-check>
         </div>
     </div>
 </div>

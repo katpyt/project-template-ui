@@ -16,7 +16,9 @@
                 <section class="col-md-6"
                          *ngFor="let project of team.projectList">
                     <card-basic [title]="project.name"
-                                subTitle="Due on {{project.dueDate  | date: 'mediumDate'}}"></card-basic>
+                                subTitle="">
+                        Due on {{project.dueDate | date: 'mediumDate'}}
+                    </card-basic>
                 </section>
             </div>
         </div>

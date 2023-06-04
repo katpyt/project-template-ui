@@ -1,20 +1,14 @@
-<!-- <div [ngClass]="source !== '' ? 'row justify-content-center' : ''">
-    <div [ngClass]="source !== '' ? 'col-lg-11 col-xl-10' : ''"> -->
 <title-component [h1Data]="siteTitle | capitalizeFirstLetter"
                  [pData]="siteTitle | browseText"></title-component>
 <div class="tab-content">
     <div class="content-list-body row">
         <section class="col-md-6 "
                  *ngFor="let team of teamList$ | async">
-            <!-- <div class="card card-team"> -->
             <card-basic [styleSuffix]="siteTitle"
                         [url]="siteTitle | url: team.id"
                         [title]="team.name"
                         [subTitle]="team.teamInfo">
             </card-basic>
-            <!-- </div> -->
         </section>
     </div>
 </div>
-<!-- </div>
-</div> -->

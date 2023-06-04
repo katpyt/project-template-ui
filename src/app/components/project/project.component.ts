@@ -11,6 +11,8 @@ import { ProjectViewModel } from './project.view-model';
 })
 export class ProjectComponent {
 
+  readonly siteTitle: string = "project";
+
   readonly projectList$: Observable<ProjectViewModel[]> = this._projectService.getAll().pipe(
     shareReplay(1),
     map((projects) => projects.map((project) => ({

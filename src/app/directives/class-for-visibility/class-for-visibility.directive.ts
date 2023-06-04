@@ -1,57 +1,67 @@
-import { Directive, ElementRef, HostListener, Input, OnInit, Renderer2, TemplateRef } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, Renderer2, TemplateRef } from '@angular/core';
+import { setUncaughtExceptionCaptureCallback } from 'process';
 import { BehaviorSubject } from 'rxjs';
 
 @Directive({ selector: '[classForVisibility]' })
-export class ClassForVisibilityDirective implements OnInit {
+export class ClassForVisibilityDirective {
 
     private _tabSelectionSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
-    constructor(private _elementRef: ElementRef, private _renderer2: Renderer2) {
+
+    @HostListener('appEmitter', ['$event'])
+    handle(event: any) {
+        // console.log('Handler: I have it!', event);
     }
 
+    // @Input() classForVisibility?: string;
+    // @Input() classForVisibility2?: string;
+    // @Output() appEmitter: EventEmitter<string> = new EventEmitter<string>();
 
-    @Input() classForVisibility?: string;
+    // @HostListener('click', ['$event'])
+    // click(event: Event, el: ElementRef) {
+    //     console.log('appEmitter: clicked')
+    //     console.log(event);
+    //     console.log(el);
+    //     this.appEmitter.emit(this._renderer2.data[0])
 
+    //     this._renderer2.setProperty(
+    //         this._elementRef.nativeElement,
+    //         'class',
+    //         'tab-pane fade'
+    //     );
+    // }
 
-    @HostListener('click', ['$event'])
-    setClass(name: string) {
-        console.log('Name: ' + name);
-        // this._renderer2.setProperty.class(
-        //     this._elementRef.nativeElement,
-        //     ,
-        //     this.classForVisibility[this._tabSelectionSubject.value]
-        // );
+    // setClass(name: string) {
+    //     console.log('Name: ' + name);
+    //     // this._renderer2.setProperty.class(
+    //     //     this._elementRef.nativeElement,
+    //     //     ,
+    //     //     this.classForVisibility[this._tabSelectionSubject.value]
+    //     // );
 
-        this._renderer2.setProperty(
-            this._elementRef.nativeElement,
-            'class',
-            'tab-pane fade'
-        );
-        // const arrowEvents = ['ArrowLeft', 'ArrowRight'];
-        // console.log(event.key);
-        // if (arrowEvents.includes(event.key) && this.bgCarousel) {
-        //     if (event.key === 'ArrowRight') {
-        //         this._colorsSubject.next(this._colorsSubject.value + 1 > this.bgCarousel.length - 1 ? 0 : this._colorsSubject.value + 1);
-        //     }
-        //     if (event.key === 'ArrowLeft') {
-        //         this._colorsSubject.next(this._colorsSubject.value - 1 < 0 ? this.bgCarousel.length - 1 : this._colorsSubject.value - 1);
-        //     }
-        //     this._renderer2.class(
-        //         this._elementRef.nativeElement,
-        //         'tab-pane fade show active',
-        //         this.bgCarousel[this._colorsSubject.value]
-        //     );
-        // }
-    }
+    //     this._renderer2.setProperty(
+    //         this._elementRef.nativeElement,
+    //         'class',
+    //         'tab-pane fade'
+    //     );
 
-    ngOnInit(): void {
-        if (this.classForVisibility) {
-            console.log('this._colorsSubject.value [' + this._tabSelectionSubject.value + ']');
-            this._renderer2.setProperty(
-                this._elementRef.nativeElement,
-                'class',
-                'tab-pane fade'
-            );
-        }
-    }
+    //     ElementRef nextEl = this._renderer2.nextSibling();
+
+    //     this._renderer2.nextSibling.apply.add(
+    //         this._elementRef.nativeElement,
+    //         'class',
+    //         'tab-pane fade'
+    //     );
+    // }
+
+    // ngOnInit(): void {
+    //     // if (this.classForVisibility) {
+    //     //     console.log('this._colorsSubject.value [' + this._tabSelectionSubject.value + ']');
+    //     this._renderer2.setProperty(
+    //         this.,
+    //         'class',
+    //         'tab-pane fade'
+    //     );
+    //     // }
+    // }
 }

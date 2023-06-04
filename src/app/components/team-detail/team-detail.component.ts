@@ -30,7 +30,8 @@ export class TeamDetailComponent {
         return ({
           id: project.id,
           name: project.name,
-          dueDate: project.dueDate
+          dueDate: project.dueDate,
+          url: ""
         })
       })
     }))

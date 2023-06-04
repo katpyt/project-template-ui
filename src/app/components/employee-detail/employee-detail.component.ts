@@ -13,6 +13,7 @@ import { ChecklistModel } from 'src/app/models/checklist.model';
 import { ChecklistService } from 'src/app/services/checklist.service';
 import { TeamModel } from 'src/app/models/team.model';
 import { TeamService } from 'src/app/services/team.service';
+import { TablistModel } from 'src/app/models/tablist.model';
 
 @Component({
   selector: 'employee-detail',
@@ -21,6 +22,8 @@ import { TeamService } from 'src/app/services/team.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EmployeeDetailComponent {
+
+  readonly tabList: TablistModel[] = [{ id: 'Teams', class: 'nav-link active' }, { id: 'Projects', class: 'nav-link' }];
 
   readonly employee$: Observable<EmployeeModel> = this._activatedRoute.params.pipe(switchMap(data => this._employeesService.getOne(data['id'])));
   readonly projects$: Observable<ProjectModel[]> = this._projectService.getAll().pipe(shareReplay(1));
@@ -99,14 +102,3 @@ export class EmployeeDetailComponent {
     return `Due ${dueDays.toFixed(0)} day${dueDays < 2 ? '' : 's'}`;
   }
 }
-
-// readonly productList$: Observable<ProductModel[]> = combineLatest([
-//   this._productService.getAllProducts(),
-//   this.selectedSortDirection$,
-// ]).pipe(
-//   switchMap(
-//     ([list, selectedSortDirection]) => {
-//       if (selectedSortDirection) return this._productService.getAllProductsSorted(selectedSortDirection);
-//       return of(list);
-//     })
-// );

@@ -21,6 +21,7 @@ export class TaskComponent {
     , private _employeesService: EmployeesService
     , private _datePipe: DatePipe) {
   }
+  readonly siteTitle: string = "task";
 
   readonly checkList$: Observable<ChecklistModel[]> = this._checklistService.getAll();
   readonly employeeList$: Observable<EmployeeModel[]> = this._employeesService.getAll().pipe(shareReplay(1));
@@ -66,16 +67,6 @@ export class TaskComponent {
               name: employeesNamesMap[id],
               url: employeesAvatarsMap[id]
             })
-            // task.assigneeIds.map((id) => {
-            //   employees.filter(employee => employee.id === id)
-            //     .map(employee => {
-            //       return ({
-            //         id: employee.id,
-            //         name: employee.firstName,
-            //         url: employee.avatarUrl
-            //       })
-            //     })
-            // }),
           })
         })
       })

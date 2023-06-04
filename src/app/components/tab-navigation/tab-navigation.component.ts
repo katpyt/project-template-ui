@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, HostListener, Input, Output, Renderer2, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { TablistModel } from 'src/app/models/tablist.model';
 
@@ -8,29 +8,41 @@ import { TablistModel } from 'src/app/models/tablist.model';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TabNavigationComponent {
-
-  constructor(private _elementRef: ElementRef, private _renderer2: Renderer2) {
-  }
+export class TabNavigationComponent implements OnInit {
 
   private _selectedTabSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   public selectedTab$: Observable<string> = this._selectedTabSubject.asObservable();
 
+  private _tabSubject: BehaviorSubject<TablistModel[]> = new BehaviorSubject<TablistModel[]>([]);
+  public tab$: Observable<TablistModel[]> = this._tabSubject.asObservable();
+
   @Input() tabList: TablistModel[] = [];
-  @Output() tabSelection: string = "";
-
-  @HostListener('click', ['$event'])
-  onClicked(tabName: string) {
-    console.log(tabName);
+  // @Output() appEmitter: EventEmitter<string> = new EventEmitter<string>();
+  @Output() selectedTab: string = "";
 
 
-    this._renderer2.setProperty(
-      this._elementRef.nativeElement,
-      'class',
-      'nav-link active'
-    );
+  onClick(tabName: string) {
+    this._selectedTabSubject.next(tabName);
+    this.selectedTab = tabName;
+    // this.appEmitter.emit(tabName);
+    this._tabSubject.next(this.tabList.map(tab => {
+      return {
+        id: tab.id,
+        class: tab.id !== tabName ? 'nav-link' : 'nav-link active'
+      }
+    }));
+  }
 
+  handleEvent(tabName: string) {
 
+  }
 
+  ngOnInit(): void {
+    this._tabSubject.next(this.tabList.map((tab, index) => {
+      return {
+        id: tab.id,
+        class: index === 0 ? 'nav-link active' : 'nav-link'
+      }
+    }));
   }
 }

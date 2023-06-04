@@ -4,8 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LeftPanelComponentModule } from './components/left-panel/left-panel.component-module';
-import { MainPanelComponentModule } from './components/main-panel/main-panel.component-module';
 import { RouterModule } from '@angular/router';
 import { EmployeeDetailComponentModule } from './components/employee-detail/employee-detail.component-module';
 
@@ -18,9 +16,7 @@ import { EmployeeDetailComponentModule } from './components/employee-detail/empl
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MainPanelComponentModule,
-    LeftPanelComponentModule,
-    EmployeeDetailComponentModule
+    EmployeeDetailComponentModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

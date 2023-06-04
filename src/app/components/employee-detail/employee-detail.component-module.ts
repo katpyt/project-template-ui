@@ -8,11 +8,12 @@ import { PlayListAddCheckComponentModule } from '../play-list-add-check/play-lis
 import { AvatarListComponentModule } from '../avatar-list/avatar-list.component-module';
 import { UrlPipeModule } from 'src/app/pipes/url/url.pipe-module';
 import { ClassForVisibilityDirectiveModule } from 'src/app/directives/class-for-visibility/class-for-visibility.directive-module';
+import { AppEmitterDirectiveModule } from 'src/app/directives/app-emitter/app-emitter.directive-module';
 
 @NgModule({
   imports: [CommonModule, TabNavigationComponentModule, CardProgressBarAvatarsComponentModule
     , CardBasicComponentModule, PlayListAddCheckComponentModule
-    , AvatarListComponentModule, UrlPipeModule, ClassForVisibilityDirectiveModule],
+    , AvatarListComponentModule, UrlPipeModule, ClassForVisibilityDirectiveModule, AppEmitterDirectiveModule],
   declarations: [EmployeeDetailComponent],
   providers: [],
   exports: [EmployeeDetailComponent]

@@ -1,7 +1,5 @@
-<!-- <div class="row justify-content-center">
-    <div class="col-lg-11 col-xl-10"> -->
-<title-component h1Data="Projects"
-                 pData="{{'project' | browseText}}"></title-component>
+<title-component [h1Data]="siteTitle | capitalizeFirstLetter"
+                 [pData]="siteTitle | browseText"></title-component>
 <div class="tab-content">
     <div class="content-list-body row ">
         <section class="col-md-6"
@@ -14,5 +12,3 @@
         </section>
     </div>
 </div>
-<!-- </div>
-</div> -->
