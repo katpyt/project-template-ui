@@ -7,11 +7,12 @@ import { CardBasicComponentModule } from '../card-basic/card-basic.component-mod
 import { PlayListAddCheckComponentModule } from '../play-list-add-check/play-list-add-check.component-module';
 import { AvatarListComponentModule } from '../avatar-list/avatar-list.component-module';
 import { UrlPipeModule } from 'src/app/pipes/url/url.pipe-module';
+import { ClassForVisibilityDirectiveModule } from 'src/app/directives/class-for-visibility/class-for-visibility.directive-module';
 
 @NgModule({
   imports: [CommonModule, TabNavigationComponentModule, CardProgressBarAvatarsComponentModule
     , CardBasicComponentModule, PlayListAddCheckComponentModule
-    , AvatarListComponentModule, UrlPipeModule],
+    , AvatarListComponentModule, UrlPipeModule, ClassForVisibilityDirectiveModule],
   declarations: [EmployeeDetailComponent],
   providers: [],
   exports: [EmployeeDetailComponent]

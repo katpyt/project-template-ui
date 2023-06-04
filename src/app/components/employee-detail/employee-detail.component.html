@@ -17,9 +17,9 @@
             </div>
         </div>
         <tab-navigation class="nav-tabs"
-                        [tabList]="['Teams', 'Projects']"></tab-navigation>
+                        [tabList]="[ { id: 'Teams', class: 'nav-link active'}, {id: 'Projects', class: 'nav-link'}]"></tab-navigation>
         <div class="tab-content">
-            <div class="tab-pane fade show active"
+            <div [classForVisibility]
                  id="teams"
                  role="tabpanel"
                  data-filter-list="content-list-body">
@@ -40,7 +40,8 @@
                     </section>
                 </div>
             </div>
-            <div class="tab-pane fade show active"
+            <!-- class="tab-pane fade show active" -->
+            <div [classForVisibility]
                  id="projects"
                  role="tabpanel"
                  data-filter-list="content-list-body">
