@@ -4,7 +4,7 @@
                  pData="{{'tasks' | browseText}}"></title-component>
 <div class="tab-content">
     <div class="content-list-body row ">
-        <section class="col-md-10"
+        <section class="col-md-12"
                  *ngFor="let task of taskList$ | async">
             <card-progress-bar-avatars [cardData]="task">
             </card-progress-bar-avatars>
