@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { TaskComponent } from './task.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { CardProgressBarAvatarsComponentModule } from '../card-progress-bar-avatars/card-progress-bar-avatars.component-module';
+import { TitleComponentModule } from '../title/title.component-module';
+import { BrowseTextPipeModule } from 'src/app/pipes/browse-text/browse-text.pipe-module';
 
 @NgModule({
-  imports: [CommonModule, CardProgressBarAvatarsComponentModule],
+  imports: [CommonModule, CardProgressBarAvatarsComponentModule, TitleComponentModule, BrowseTextPipeModule],
   declarations: [TaskComponent],
-  providers: [],
+  providers: [DatePipe],
   exports: [TaskComponent]
 })
 export class TaskComponentModule {

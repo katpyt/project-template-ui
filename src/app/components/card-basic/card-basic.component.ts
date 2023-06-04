@@ -10,5 +10,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
 export class CardBasicComponent {
 
   @Input() title: string = "";
-  @Input() subTitle: string = "";
+  @Input() subTitle?: string = "";
+  @Input() url: string = "";
+  @Input() styleSuffix: string = "";
 }

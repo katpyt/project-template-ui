@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { LeftPanelComponent } from './left-panel.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports: [],
+  imports: [RouterModule],
   declarations: [LeftPanelComponent],
   providers: [],
   exports: [LeftPanelComponent]

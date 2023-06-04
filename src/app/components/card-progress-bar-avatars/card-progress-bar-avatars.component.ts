@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
+import { CardProgressBarAvatarsViewModel } from './card-progress-bar-avatars.view-model';
 
 @Component({
   selector: 'card-progress-bar-avatars',
@@ -6,11 +7,10 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class CardProgressBarAvatarsComponent {
-  @Input() title: string = "";
-  @Input() subTitle: string = "";
-  @Input() progressColor: string = "";
-  @Input() progressValue: string = "";
-  @Input() checkListStatus: number = 0;
-  @Input() avatars: string[] = [];
+
+  @Input() cardData: CardProgressBarAvatarsViewModel = {
+    title: '', subTitle: '', progressColor: '', progressValue: 0, tasksStatus: '', employeeData: []
+  };
 }
