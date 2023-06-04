@@ -1,0 +1,13 @@
+<ul class="avatars">
+    <li *ngFor="let avatar of avatarsList">
+        <a href="#"
+           data-toggle="tooltip"
+           title
+           attr.data-original-title="{{avatar.name}}"
+           [routerLink]="'employee' | url: avatar.id">
+            <img [alt]="avatar.name"
+                 class="avatar"
+                 src="{{avatar.url}}">
+        </a>
+    </li>
+</ul>

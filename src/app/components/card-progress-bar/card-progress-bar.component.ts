@@ -6,6 +6,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class CardProgressBarComponent {
   @Input() title: string = "";
   @Input() subTitle: string = "";

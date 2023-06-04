@@ -1,0 +1,24 @@
+<section *ngIf="teamDetails$ | async as team">
+    <title-component [h1Data]="team.name"
+                     [pData]="team.description">
+        <avatar-list [avatarsList]="team.avatarList"></avatar-list>
+    </title-component>
+    <tab-navigation [tabList]="['Projects']"></tab-navigation>
+
+    <div class="tab-content">
+        <div class="content-list">
+            <div class="row content-list-head">
+                <div class="col-auto">
+                    <h3>Projects</h3>
+                </div>
+            </div>
+            <div class="content-list-body row">
+                <section class="col-md-6"
+                         *ngFor="let project of team.projectList">
+                    <card-basic [title]="project.name"
+                                subTitle="Due on {{project.dueDate  | date: 'mediumDate'}}"></card-basic>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>

@@ -17,21 +17,11 @@ export class ProjectComponent {
       name: project.name,
       dueInfo: project.dueDate,
       progressPercentage: project.percentage.toString(),
-      progressColor: this.getProgressColor(project.percentage)
+      progressColor: 'bg-info'
     })))
   );
 
   constructor(private _projectService: ProjectService) {
-  }
-
-  private getProgressColor(percentage: number): string {
-    return percentage <= 25
-      ? "bg-success"
-      : percentage <= 50
-        ? "bg-info"
-        : percentage <= 75
-          ? "bg-warning"
-          : "bg-danger";
   }
 
 }
