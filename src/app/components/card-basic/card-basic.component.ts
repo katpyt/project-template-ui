@@ -13,4 +13,5 @@ export class CardBasicComponent {
   @Input() subTitle?: string = "";
   @Input() url: string = "";
   @Input() styleSuffix: string = "";
+
 }
