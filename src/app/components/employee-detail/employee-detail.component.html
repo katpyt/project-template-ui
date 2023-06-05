@@ -17,10 +17,9 @@
         </div>
         <tab-navigation class="nav-tabs"
                         [tabList]="tabList"
-                        appEmitter></tab-navigation>
+                        (whatTabActive)="onActivated($event)"></tab-navigation>
         <div class="tab-content">
-            <div classForVisibility
-                 class="tab-pane fade show active"
+            <div [ngClass]="selectedCategory === 'Teams'? 'tab-pane fade show active' : 'tab-pane fade'"
                  id="teams"
                  role="tabpanel"
                  data-filter-list="content-list-body">
@@ -41,8 +40,7 @@
                     </section>
                 </div>
             </div>
-            <div classForVisibility
-                 class="tab-pane fade show active"
+            <div [ngClass]="selectedCategory === 'Projects'? 'tab-pane fade show active' : 'tab-pane fade'"
                  id="projects"
                  role="tabpanel"
                  data-filter-list="content-list-body">

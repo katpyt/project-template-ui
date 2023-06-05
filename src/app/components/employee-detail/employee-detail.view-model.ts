@@ -1,5 +1,3 @@
-import { ProjectModel } from "src/app/models/project.model";
-import { TeamModel } from "src/app/models/team.model";
 
 export interface EmployeeDetailViewModel {
   readonly id: string;

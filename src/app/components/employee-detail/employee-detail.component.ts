@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, combineLatest } from 'rxjs';
+import { BehaviorSubject, Observable, combineLatest } from 'rxjs';
 import { map, shareReplay, switchMap } from 'rxjs/operators';
 import { EmployeeModel } from '../../models/employee.model';
 import { EmployeeDetailViewModel } from './employee-detail.view-model';
@@ -24,12 +24,21 @@ import { TablistModel } from 'src/app/models/tablist.model';
 export class EmployeeDetailComponent {
 
   readonly tabList: TablistModel[] = [{ id: 'Teams', class: 'nav-link active' }, { id: 'Projects', class: 'nav-link' }];
+  public selectedCategory: string = this.tabList[0].id;
 
   readonly employee$: Observable<EmployeeModel> = this._activatedRoute.params.pipe(switchMap(data => this._employeesService.getOne(data['id'])));
   readonly projects$: Observable<ProjectModel[]> = this._projectService.getAll().pipe(shareReplay(1));
   readonly tasks$: Observable<TaskModel[]> = this._taskService.getAll().pipe(shareReplay(1));
   readonly checkList$: Observable<ChecklistModel[]> = this._checkListService.getAll();
   readonly teamList$: Observable<TeamModel[]> = this._teamService.getAll()
+
+  private _categorySubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  public category$: Observable<string> = this._categorySubject.asObservable();
+
+  onActivated(title: string) {
+    this._categorySubject.next(title);
+    this.selectedCategory = title;
+  }
 
   readonly employeeDetails$: Observable<EmployeeDetailViewModel> = combineLatest([
     this.employee$,

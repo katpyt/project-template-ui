@@ -1,17 +1,13 @@
 import { Directive, EventEmitter, HostListener, Input, Output } from '@angular/core';
 
-@Directive({ selector: '[appEmitter]' })
+@Directive({ selector: 'isActive2' })
 export class AppEmitterDirective {
 
-    @Input() tabName: string = "";
-    @Output() appEmitter: EventEmitter<string> = new EventEmitter<string>();
+    @Output() isActive2: EventEmitter<string> = new EventEmitter<string>();
 
-    @HostListener('click')
-    onClicked(tabId: string) {
-        // console.log('emit')
-        this.appEmitter.emit(this.tabName);
-        // console.log('appEmitter: clicked')
+    @HostListener('click', ['$event'])
+    onClicked(event: string) {
+        this.isActive2.emit(event);
 
-        // console.log('tabId ' + tabId)
     }
 }

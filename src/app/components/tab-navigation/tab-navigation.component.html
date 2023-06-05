@@ -1,8 +1,8 @@
 <ul class="nav nav-tabs nav-fill">
     <li class="nav-item"
         *ngFor="let tab of tab$ | async">
-        <a (click)="onClick(tab.id)"
-           (appEmitter)="tab.id"
+        <a (click)="onClicked(tab.id)"
+           (whatTabActive)="tab.id"
            [class]="tab.class">{{tab.id}}</a>
     </li>
 </ul>

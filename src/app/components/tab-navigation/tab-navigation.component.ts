@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { TablistModel } from 'src/app/models/tablist.model';
 
@@ -17,24 +17,17 @@ export class TabNavigationComponent implements OnInit {
   public tab$: Observable<TablistModel[]> = this._tabSubject.asObservable();
 
   @Input() tabList: TablistModel[] = [];
-  // @Output() appEmitter: EventEmitter<string> = new EventEmitter<string>();
-  @Output() selectedTab: string = "";
+  @Output() whatTabActive: EventEmitter<string> = new EventEmitter<string>();
 
-
-  onClick(tabName: string) {
+  onClicked(tabName: string) {
     this._selectedTabSubject.next(tabName);
-    this.selectedTab = tabName;
-    // this.appEmitter.emit(tabName);
+    this.whatTabActive.emit(tabName);
     this._tabSubject.next(this.tabList.map(tab => {
       return {
         id: tab.id,
         class: tab.id !== tabName ? 'nav-link' : 'nav-link active'
       }
     }));
-  }
-
-  handleEvent(tabName: string) {
-
   }
 
   ngOnInit(): void {
